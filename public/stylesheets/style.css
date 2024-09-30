@@ -1,8 +1,110 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+header,
+main,
+footer {
+  font-family: 'Droid Sans', sans-serif;
+  min-width: 855px;
+  background: #f9e933;
+}
+
+h1 {
+  font-style: italic;
+  color: crimson;
+}
+
+nav {
+  text-align: center;
+  margin-top: 25px;
 }
 
 a {
-  color: #00B7FF;
+  color: red;
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  margin-right: 5px;
+  margin-left: 5px;
 }
+
+nav a {
+  border-right: 5px;
+}
+
+header {
+  background: white;
+  overflow: auto;
+}
+
+main {
+  height: 30em;
+  margin-top: 8em;
+  margin-bottom: 8em;
+  border: 1px solid red;
+  background: white;
+  overflow: auto;
+}
+
+footer {
+  margin-top: 3em;
+}
+
+header .container,
+main .container,
+footer .container {
+  max-width: 855px;
+  margin: auto;
+  overflow: auto;
+}
+
+header h1,
+#left-text,
+.contact {
+  float: left;
+  width: 570px;
+  position: absolute;
+}
+
+
+header nav,
+img,
+.sitemap {
+  float: right;
+  width: 285px;
+}
+
+.list-left {
+  float: left;
+}
+
+
+.list-right {
+  float: right;
+}
+
+.tabs a span {
+  display: inline-block;
+  border-radius: 5px 5px 0 0;
+  width: 100px;
+  margin-right: 10px;
+  text-align: center;
+  background: #ddd;
+  padding: 5px;
+}
+
+.content {
+  padding: 5px;
+  max-width: 855px;
+  background: #eee;
+}
+
+.tabs a span.active {
+  background: #eee;
+}
+
+.content span, button {
+  display:none;
+}
+
+.content span.active, button.active {
+  display: inline;
+}
+

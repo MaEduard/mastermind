@@ -1,0 +1,48 @@
+.playboard {
+    float: left;
+}
+
+div.color-picker {
+    border: 5px solid black;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    color: white;
+}
+
+div.tile-p1 {
+    border: 1px dashed black;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    color: white;
+}
+
+div.tile-p2 {
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    color: white;
+}
+
+div.tile-p1:hover {
+    background-color: red;
+}
+
+div.tile-p1:active {
+    background-color: aqua;
+}
+
+div.tile-p2:hover {
+    background-color: green;
+}
+
+div.tile-p2:active {
+    background-color: gold;
+}
+
+.p1-secret-code-, .game-info {
+    float: right;
+}
+
