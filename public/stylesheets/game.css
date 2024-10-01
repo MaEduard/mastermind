@@ -1,29 +1,64 @@
+main {
+    display: grid;
+    grid-template-columns: 60vw 40vw;
+    grid-template-rows: 0.5fr 0.5fr 100px;
+    box-sizing: border-box;
+    color: var(--text);
+    font-family: 'Bungee Shade', cursive;
+}
+
+.centerXY {
+    /* we are cheating a bit here: within CSS grid the horizontal and vertical
+       alignment of text is not easy; flex is a display type that handles this
+       easily 
+    */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 100%;
+}
+
 .playboard {
     float: left;
 }
 
-div.color-picker {
-    border: 5px solid black;
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    color: white;
-}
+
+.justify {
+    display: flex;
+    justify-content: center;
+  }
+  
+  #board {
+    grid-row: 1/4;
+    background-color: var(--lightBG);
+    display: grid;
+    grid-template-columns: repeat(6, 8vw);
+    grid-template-rows: repeat(5, 17vh);
+    gap: 20px;
+    padding-top: 10px;
+    box-sizing: border-box;
+    border-right: 5px dashed var(--lightHighlight);
+  }
+  
+  .tile-p1, .tile-p2, .color-picker {
+    background-color: var(--darkHighlight);
+    border: 1px dashed black;
+    font-size: 250%;
+    padding-left: 10px;
+    box-shadow: 20px 20px 10px -10px rgba(31, 31, 31, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
 div.tile-p1 {
-    border: 1px dashed black;
     width: 40px;
     height: 40px;
-    text-align: center;
-    color: white;
 }
 
 div.tile-p2 {
-    border: 1px solid black;
     width: 50px;
     height: 50px;
-    text-align: center;
-    color: white;
 }
 
 div.tile-p1:hover {
@@ -42,7 +77,17 @@ div.tile-p2:active {
     background-color: gold;
 }
 
-.p1-secret-code-, .game-info {
-    float: right;
+div.color-picker:hover {
+    background-color: beige;
 }
 
+div.color-picker:active {
+    background-color: brown;
+}
+
+#gamestatus {
+    background-color: var(--lightHighlight);
+    font-family: monaco, Bitstream Vera Sans Mono, monospace;
+    font-size: 100%;
+    padding: 10px;
+  }
