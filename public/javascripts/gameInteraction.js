@@ -69,8 +69,9 @@ function main() {
   };
 
   var colorPickerDOM = "tr.color-picker div";
-  var allTilesPickerDOM = $(".tile-p2").toArray();
-  var tilePickerDOM = ".tile-p2";
+  var allTilesPickerp2 = $(".tile-p2").toArray();
+  var allTilesPickerp1 = $(".tile-p1").toArray();
+  var tilePickerp2 = ".tile-p2";
   var colorPicked = "blue";
   var secretCode = "blue-red-green-yellow";
   var rowsNR = 7;
@@ -84,10 +85,10 @@ function main() {
     return false;
   });
 
-  $(tilePickerDOM).on("click", function (event) {
+  $(tilePickerp2).on("click", function (event) {
     // Check if the clicked tile already has the "changed" class or there are no more rows to change
     if ($(event.target).hasClass("changed")) {
-      return false;  
+      return false;
     }
     else if ($(event.target).hasClass("active")) {
       // Otherwise, change the background color and add the "changed" class
@@ -99,36 +100,40 @@ function main() {
 
       // If 4 or more tiles have the "changed" class, print a message
       if (changedTiles.length % 4 == 0) {
-        $(tilePickerDOM).removeClass("active");
+        $(tilePickerp2).removeClass("active");
         $(".changed").css("opacity", 1);
         secretCodeArray = secretCode.split('-');
+        let allTilesPickerp1Active = $(".tile-p1.active").toArray();
+        console.log(allTilesPickerp1Active);
 
         for (let i = 0; i < 4; i++) {
           var backgroundColor = $(changedTiles[i]).css("background-color");
           if (backgroundColor == colors[secretCodeArray[i]]) {
-            console.log("correct color & place");
+            $(allTilesPickerp1Active[i]).css("background-color", "red");
             const index = secretCodeArray.indexOf(colors[backgroundColor]);
             secretCodeArray[index] = "noColor";
           }
           else if (secretCodeArray.includes(colors[backgroundColor])) {
-            console.log("Tile is there but not in the right place");
             const index = secretCodeArray.indexOf(colors[backgroundColor]);
             secretCodeArray[index] = "noColor";
+            $(allTilesPickerp1Active[i]).css("background-color", "white");
           }
           else {
-            console.log("tile not in code")
+            console.log("tile not in code");
           }
         }
-        console.log('4 tiles have been changed!');
 
+        $(".tile-p1.active").removeClass("active");
 
-        var newActives = allTilesPickerDOM.slice(4 * (rowsNR - 1), allTilesPickerDOM.length - 4 * rowNumber)
+        var newActivesp2 = allTilesPickerp2.slice(4 * (rowsNR - 1), allTilesPickerp2.length - 4 * rowNumber);
+        var newActivesp1 = allTilesPickerp1.slice(4 * (rowsNR - 1), allTilesPickerp1.length - 4 * rowNumber);
 
         rowNumber++;
         rowsNR--;
 
-        for (let i = 0; i < newActives.length; i++) {
-          $(newActives[i]).addClass("active");
+        for (let i = 0; i < newActivesp1.length; i++) {
+          $(newActivesp2[i]).addClass("active");
+          $(newActivesp1[i]).addClass("active");
         }
         return false;
       }
