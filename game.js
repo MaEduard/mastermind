@@ -12,7 +12,7 @@ var game = function (gameID) {
 };
 
 /*
- * The game can be in a number of different states.
+ * The game can be in a number of different states as indicated by its attributes.
  */
 game.prototype.transitionStates = {};
 game.prototype.transitionStates["0 JOINT"] = 0;
