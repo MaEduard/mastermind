@@ -129,13 +129,6 @@ game.prototype.setStatus = function (w) {
  * @returns 
  */
 game.prototype.setColorCode = function (w) {
-    console.assert(
-        typeof w == "string",
-        "%s: Expecting a string, got a %s",
-        arguments.callee.name,
-        typeof w
-    );
-
     //two possible options for the current game state:
     //1 JOINT, 2 JOINT
     if (this.gameState != "1 JOINT" && this.gameState != "2 JOINT") {
@@ -144,7 +137,7 @@ game.prototype.setColorCode = function (w) {
             this.gameState
         );
     }
-    this.wordToGuess = w;
+    this.codeToGuess = w;
 };
 
 /**
