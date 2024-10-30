@@ -1,80 +1,140 @@
+/* General reset and font setup */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    font-family: Arial, sans-serif;
+    background-color: #1d1f27;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 main {
-    display: grid;
-    grid-template-columns: 60vw 40vw;
-    grid-template-rows: 0.5fr 0.5fr 100px;
-    box-sizing: border-box;
-    color: var(--text);
-    font-family: 'Bungee Shade', cursive;
-}
-
-.centerXY {
-    /* we are cheating a bit here: within CSS grid the horizontal and vertical
-       alignment of text is not easy; flex is a display type that handles this
-       easily 
-    */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    flex-basis: 100%;
-}
-
-.playboard {
-    float: left;
-}
-
-
-.justify {
-    display: flex;
-    justify-content: center;
-}
-
-#board {
-    grid-row: 1/4;
-    background-color: var(--lightBG);
-    display: grid;
-    grid-template-columns: repeat(6, 8vw);
-    grid-template-rows: repeat(5, 17vh);
     gap: 20px;
-    padding-top: 10px;
-    box-sizing: border-box;
-    border-right: 5px dashed var(--lightHighlight);
 }
 
-.tile-p1,
-.tile-p2,
-.secretcode-p1,
-td.color-picker tr div {
-    background-color: grey;
-    border: 1px solid black;
-    padding-left: 10px;
+/* Board Section Styling */
+#board {
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #2b2e3b;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
 }
 
-
-div.tile-p1, div.secretcode-p1 {
-    background-color: black;
+#board table {
+    border-collapse: collapse;
 }
 
-div.tile-p2,
-tr.color-picker div,
-div.tile-p1, div.secretcode-p1 {
+#board td {
+    padding: 5px;
+}
+
+/* Tile Styling */
+.tile-p1,
+.tile-p2 {
     width: 50px;
     height: 50px;
+    border-radius: 4px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-div.tile-p2:hover {
-    opacity: 0.7;
+.tile-p1 {
+    background-color: #5a5e73;
 }
 
-tr.color-picker div.active {
-    border: 3px solid black;
+.tile-p2 {
+    background-color: #868aa3;
 }
 
-#gamestatus {
-    background-color: var(--lightHighlight);
-    font-family: monaco, Bitstream Vera Sans Mono, monospace;
-    font-size: 100%;
+.tile-p2.active {
+    background-color: gold;
+}
+
+.tile-p2.active:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Secret Code Tiles Styling */
+.secretcode-p1 {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #ffc107;
+    border-radius: 4px;
+    background-color: #3e435a;
+    transition: background-color 0.3s ease;
+}
+
+.secretcode-p1:hover {
+    background-color: #575d77;
+}
+
+/* Color Picker Section */
+.color-picker td {
     padding: 10px;
+}
+
+.color-picker div {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.color-picker div:hover, .color-picker div.active {
+    transform: scale(1.15);
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+
+
+/* Center XY Section Styling */
+.centerXY {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2b2e3b;
+    border-radius: 8px;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Status Bar Styling */
+#statusbar {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    background-color: #ffc107;
+    color: #1d1f27;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .tile-p1,
+    .tile-p2,
+    .secretcode-p1,
+    .color-picker div {
+        width: 40px;
+        height: 40px;
+    }
+
+    #statusbar {
+        font-size: 1em;
+    }
 }
