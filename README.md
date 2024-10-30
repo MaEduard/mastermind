@@ -5,7 +5,7 @@
 </p>
 
 
-A two-player version of the mastermind game implemented with websockets, Node.js, Express, Javascript, HTML, and CSS. 
+A two-player version of the mastermind game implemented using a object-oriented design with websockets, Node.js, Express, Javascript, HTML, and CSS. 
 
 This project was created for the course Web science & Database Technology (CSE1500). 
 
